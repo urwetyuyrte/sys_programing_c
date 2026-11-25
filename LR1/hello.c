@@ -6,4 +6,3 @@ int main(void) {
 }
 
 /* First C program */
-// Laboratory work 1 
