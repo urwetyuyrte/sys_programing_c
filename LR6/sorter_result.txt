@@ -1,0 +1,15 @@
+Sorting started
+Created: out
+Created: /mnt/data/lr6test/out/Documents
+Created: /mnt/data/lr6test/out/Sources
+Created: /mnt/data/lr6test/out/Images
+Created: /mnt/data/lr6test/out/PDFs
+Created: /mnt/data/lr6test/out/Other
+Moved: /mnt/data/lr6test/lab6_22/docs/manual.txt -> /mnt/data/lr6test/out/Documents/manual.txt
+Moved: /mnt/data/lr6test/lab6_22/docs/img/dog.png -> /mnt/data/lr6test/out/Images/dog.png
+Moved: /mnt/data/lr6test/lab6_22/docs/img/cat.jpg -> /mnt/data/lr6test/out/Images/cat.jpg
+Moved: /mnt/data/lr6test/lab6_22/docs/presentation.pdf -> /mnt/data/lr6test/out/PDFs/presentation.pdf
+Moved: /mnt/data/lr6test/lab6_22/src/main.c -> /mnt/data/lr6test/out/Sources/main.c
+Moved: /mnt/data/lr6test/lab6_22/README.md -> /mnt/data/lr6test/out/Documents/README.md
+Moved: /mnt/data/lr6test/lab6_22/.git/config -> /mnt/data/lr6test/out/Other/config
+Sorting finished. Errors: 0

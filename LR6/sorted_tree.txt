@@ -1,0 +1,14 @@
+out
+|-- PDFs
+    |-- presentation.pdf
+|-- Documents
+    |-- manual.txt
+    |-- README.md
+|-- Other
+    |-- config
+|-- Sources
+    |-- main.c
+|-- Images
+    |-- dog.png
+    |-- cat.jpg
+5 directories, 7 files

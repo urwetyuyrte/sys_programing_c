@@ -1,0 +1,12 @@
+lab6_22
+|-- docs
+    |-- manual.txt
+    |-- img
+        |-- dog.png
+        |-- cat.jpg
+    |-- presentation.pdf
+|-- src
+    |-- main.c
+|-- README.md
+|-- bin
+4 directories, 6 files
