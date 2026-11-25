@@ -1,0 +1,20 @@
+$ make clean && make && make install
+rm -f pwd_80_22 sigquit sigusr1
+gcc -std=c11 -Wall -Wextra -g pwd.c -o pwd_80_22
+gcc -std=c11 -Wall -Wextra -g -rdynamic sigquit.c -o sigquit
+gcc -std=c11 -Wall -Wextra -g sigusr1.c -o sigusr1
+install -m 755 pwd_80_22 /usr/local/bin/pwd_80_22
+$ command -v pwd_80_22; pwd_80_22 --help; pwd_80_22 --version; pwd_80_22 --author
+/usr/local/bin/pwd_80_22
+Usage: pwd_80_22 [-L|-P] [OPTIONS]
+-L logical path (default)
+-P physical path
+--help help
+--version version
+--author developer
+pwd_80_22 1.0.0
+Розробник: Семисал Гліб
+$ cd /tmp/lr5_csq2qefe/link; pwd_80_22; pwd_80_22 -L; pwd_80_22 -P
+/tmp/lr5_csq2qefe/link
+/tmp/lr5_csq2qefe/link
+/tmp/lr5_csq2qefe/real

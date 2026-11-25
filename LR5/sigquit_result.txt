@@ -1,0 +1,19 @@
+$ ./sigquit
+PID: 3612
+kill -3 3612
+Waiting for SIGQUIT (Ctrl+\)
+$ kill -3 3612 (another process)
+--- Stack Trace (SIGQUIT) ---
+./sigquit(main+0x13e) [0x560822f8d32b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x29ca8) [0x7f9b18c3aca8]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85) [0x7f9b18c3ad65]
+./sigquit(_start+0x21) [0x560822f8d111]
+
+$ ./sigquit
+ (Ctrl+\)
+^\--- Stack Trace (SIGQUIT) ---
+./sigquit(main+0x13e) [0x55da97eaf32b]
+/lib/x86_64-linux-gnu/libc.so.6(+0x29ca8) [0x7f71301faca8]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85) [0x7f71301fad65]
+./sigquit(_start+0x21) [0x55da97eaf111]
+

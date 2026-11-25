@@ -1,0 +1,10 @@
+$ ./sigusr1
+[CONFIG LOADED] logLevel: info, logInterval: 5
+PID: 3615
+kill -USR1 3615
+[info] System message (interval 5 sec)
+$ echo "warn 6" > config.txt
+$ kill -USR1 3615
+[CONFIG LOADED] logLevel: warn, logInterval: 6
+[warn] System message (interval 6 sec)
+(Stopped by SIGTERM after test.)
