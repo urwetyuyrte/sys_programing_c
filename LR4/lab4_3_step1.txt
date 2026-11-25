@@ -1,0 +1,27 @@
+$ gcc -std=gnu11 -g -O0 -fsanitize=address -fno-omit-frame-pointer -no-pie lab4_3_step1.c -o lab4_3_step1
+$ ./lab4_3_step1
+=================================================================
+==3009==ERROR: AddressSanitizer: attempting double-free on 0x506000000020 in thread T0:
+    #0 0x7fa54c98f8f8 in free ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:52
+    #1 0x40139d in free_entry /mnt/data/LR4/lab4_3_step1.c:22
+    #2 0x4014dd in main /mnt/data/LR4/lab4_3_step1.c:34
+    #3 0x7fa54c6d1ca7  (/lib/x86_64-linux-gnu/libc.so.6+0x29ca7) (BuildId: c495b62edadd6c356265942ec1282d98058a7b41)
+    #4 0x7fa54c6d1d64 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x29d64) (BuildId: c495b62edadd6c356265942ec1282d98058a7b41)
+    #5 0x401120 in _start (/tmp/lab4_3_step1+0x401120) (BuildId: 6a98c0ff7cbb6ace67cf43a704e87068bcdb2881)
+
+0x506000000020 is located 0 bytes inside of 55-byte region [0x506000000020,0x506000000057)
+freed by thread T0 here:
+    #0 0x7fa54c98f8f8 in free ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:52
+    #1 0x401333 in free_entry /mnt/data/LR4/lab4_3_step1.c:20
+    #2 0x4014dd in main /mnt/data/LR4/lab4_3_step1.c:34
+    #3 0x7fa54c6d1ca7  (/lib/x86_64-linux-gnu/libc.so.6+0x29ca7) (BuildId: c495b62edadd6c356265942ec1282d98058a7b41)
+
+previously allocated by thread T0 here:
+    #0 0x7fa54c98ad60 in strdup ../../../../src/libsanitizer/asan/asan_interceptors.cpp:578
+    #1 0x40125b in create_entry /mnt/data/LR4/lab4_3_step1.c:13
+    #2 0x40141c in main /mnt/data/LR4/lab4_3_step1.c:31
+    #3 0x7fa54c6d1ca7  (/lib/x86_64-linux-gnu/libc.so.6+0x29ca7) (BuildId: c495b62edadd6c356265942ec1282d98058a7b41)
+
+SUMMARY: AddressSanitizer: double-free ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:52 in free
+==3009==ABORTING
+Exit code: 1

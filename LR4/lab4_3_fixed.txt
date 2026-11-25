@@ -1,0 +1,6 @@
+$ gcc -std=gnu11 -g -O0 -fsanitize=address -fno-omit-frame-pointer -no-pie lab4_3_fixed.c -o lab4_3_fixed
+$ ./lab4_3_fixed
+--- Запуск програми журналу подій ---
+Header: Цей заголовок є занадто довгим для 16 байт
+Запис [101] [12:45:30]: Системна помилка підключення
+Exit code: 0

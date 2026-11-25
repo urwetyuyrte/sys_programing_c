@@ -1,0 +1,54 @@
+$ gcc -std=gnu11 -g -O0 -fsanitize=address -fno-omit-frame-pointer -no-pie lab4_2_buggy.c -o lab4_2_buggy
+$ ./lab4_2_buggy
+=================================================================
+==2977==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x5100000000f4 at pc 0x00000040125b bp 0x7ffddb786f90 sp 0x7ffddb786f88
+WRITE of size 4 at 0x5100000000f4 thread T0
+    #0 0x40125a in create_user_list /mnt/data/LR4/lab4_2_buggy.c:9
+    #1 0x4012cc in process_users /mnt/data/LR4/lab4_2_buggy.c:16
+    #2 0x40136d in main /mnt/data/LR4/lab4_2_buggy.c:22
+    #3 0x7f14c1930ca7  (/lib/x86_64-linux-gnu/libc.so.6+0x29ca7) (BuildId: c495b62edadd6c356265942ec1282d98058a7b41)
+    #4 0x7f14c1930d64 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x29d64) (BuildId: c495b62edadd6c356265942ec1282d98058a7b41)
+    #5 0x4010f0 in _start (/tmp/lab4_2_buggy+0x4010f0) (BuildId: 572491b43854b86c050bf3f0c6c0ab3df24e51e8)
+
+0x5100000000f4 is located 0 bytes after 180-byte region [0x510000000040,0x5100000000f4)
+allocated by thread T0 here:
+    #0 0x7f14c1befc57 in malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:69
+    #1 0x4011dc in create_user_list /mnt/data/LR4/lab4_2_buggy.c:6
+    #2 0x4012cc in process_users /mnt/data/LR4/lab4_2_buggy.c:16
+    #3 0x40136d in main /mnt/data/LR4/lab4_2_buggy.c:22
+    #4 0x7f14c1930ca7  (/lib/x86_64-linux-gnu/libc.so.6+0x29ca7) (BuildId: c495b62edadd6c356265942ec1282d98058a7b41)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow /mnt/data/LR4/lab4_2_buggy.c:9 in create_user_list
+Shadow bytes around the buggy address:
+  0x50fffffffe00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x50fffffffe80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x50ffffffff00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x50ffffffff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x510000000000: fa fa fa fa fa fa fa fa 00 00 00 00 00 00 00 00
+=>0x510000000080: 00 00 00 00 00 00 00 00 00 00 00 00 00 00[04]fa
+  0x510000000100: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x510000000180: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x510000000200: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x510000000280: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x510000000300: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==2977==ABORTING
+Exit code: 1

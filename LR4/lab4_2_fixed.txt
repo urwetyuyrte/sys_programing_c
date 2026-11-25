@@ -1,0 +1,5 @@
+$ gcc -std=gnu11 -g -O0 -fsanitize=address -fno-omit-frame-pointer -no-pie lab4_2_fixed.c -o lab4_2_fixed
+$ ./lab4_2_fixed
+Створено користувачів: 5
+Перший користувач: ID=1, Name=User_1
+Exit code: 0
